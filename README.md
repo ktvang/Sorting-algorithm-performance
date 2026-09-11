@@ -47,11 +47,31 @@ The project uses an abstract `Sort` class with concrete implementations for Bubb
 
 The sorting algorithms were tested using randomly generated integer arrays of increasing sizes. Each algorithm successfully sorted the data, and the results were verified using the `isSorted()` method.
 
-The original experiment tested input sizes from 40 to 2,560 integers. At the largest tested size of 2,560 integers, Bubble Sort took 3 ms, Merge Sort took 11 ms, and Java's `Arrays.sort()` took 1 ms.
+### Runtime Results
 
-The timing results show that Java's built-in `Arrays.sort()` performed fastest in this test. The difference between Bubble Sort and Merge Sort was not large enough to clearly demonstrate their theoretical Big-O differences at these dataset sizes. A larger and more controlled benchmark would provide a better comparison of how each algorithm scales as input size increases.
+| Input Size | Bubble Sort | Merge Sort | Java Arrays.sort() |
+|------------|-------------|------------|--------------------|
+| 40         | 0 ms        | 0 ms       | 0 ms               |
+| 80         | 1 ms        | 0 ms       | 0 ms               |
+| 160        | 0 ms        | 0 ms       | 0 ms               |
+| 320        | 1 ms        | 0 ms       | 0 ms               |
+| 640        | 1 ms        | 1 ms       | 0 ms               |
+| 1,280      | 1 ms        | 3 ms       | 1 ms               |
+| 2,560      | 3 ms        | 11 ms      | 1 ms               |
 
-The results demonstrate how practical runtime can be affected by dataset size, algorithm implementation, and measurement precision when comparing theoretical complexity with actual performance.
+The largest test used 2,560 integers. At this input size, Java's `Arrays.sort()` had the fastest measured runtime at 1 ms, followed by Bubble Sort at 3 ms and Merge Sort at 11 ms.
+
+The results also show that the smaller datasets produced several 0 ms measurements, making it difficult to observe the theoretical Big-O differences at these input sizes. The experiment demonstrates how actual runtime measurements can vary based on dataset size and the precision of the timing method.
+
+### Complexity Comparison
+
+| Algorithm | Theoretical Time Complexity |
+|-----------|-----------------------------|
+| Bubble Sort | O(n²) |
+| Merge Sort | O(n log n) |
+| Java Arrays.sort() | O(n log n) |
+
+The experiment provided practical runtime data for comparing these algorithms with their theoretical complexity. The relatively small dataset sizes and millisecond timing resolution limited the ability to clearly observe the expected scaling differences between O(n²) and O(n log n) algorithms.
 
 ## What I Demonstrated
 
