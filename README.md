@@ -45,11 +45,13 @@ The project uses an abstract `Sort` class with concrete implementations for Bubb
 
 ## Results
 
-The sorting algorithms were tested using randomly generated integer arrays of increasing sizes. Each algorithm was timed and its output was checked to verify that the data was sorted correctly.
+The sorting algorithms were tested using randomly generated integer arrays of increasing sizes. Each algorithm successfully sorted the data, and the results were verified using the `isSorted()` method.
 
-The results showed that Merge Sort and Java's `Arrays.sort()` scale more efficiently than Bubble Sort as the input size increases. This demonstrates the practical impact of algorithmic complexity when working with larger datasets.
+The original experiment tested input sizes from 40 to 2,560 integers. At the largest tested size of 2,560 integers, Bubble Sort took 3 ms, Merge Sort took 11 ms, and Java's `Arrays.sort()` took 1 ms.
 
-The original experiment tested datasets ranging from 20 to 2,560 integers.
+The timing results show that Java's built-in `Arrays.sort()` performed fastest in this test. The difference between Bubble Sort and Merge Sort was not large enough to clearly demonstrate their theoretical Big-O differences at these dataset sizes. A larger and more controlled benchmark would provide a better comparison of how each algorithm scales as input size increases.
+
+The results demonstrate how practical runtime can be affected by dataset size, algorithm implementation, and measurement precision when comparing theoretical complexity with actual performance.
 
 ## What I Demonstrated
 
